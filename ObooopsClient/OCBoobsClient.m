@@ -40,6 +40,8 @@ static NSString * const kAFBoobsAPIBaseURLString = @"http://api.oboobs.ru";
 - (NSURLRequest *)boobsRequestWithOffset:(NSInteger)offset count:(NSInteger)count sort:(NSString *)sort {
     NSString *params = [NSString stringWithFormat:@"%d/%d/%@", offset, count, sort];
     
+    NSLog(@"%@", params);
+    
     NSMutableURLRequest *request = [self requestWithMethod:@"GET" path:[NSString stringWithFormat:@"boobs/%@", params] parameters:nil];
     return request;
 }

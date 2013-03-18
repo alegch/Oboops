@@ -12,6 +12,7 @@
 
 #import "OCBoobsClient.h"
 #import "OCBoobs.h"
+#import <SVPullToRefresh/SVPullToRefresh.h>
 
 
 @interface OCBoobsListViewController () <UITableViewDelegate,
@@ -20,17 +21,25 @@
     NSMutableArray *_boobs;
     
     __weak UITableView *_tableView;
+    
+    NSInteger _lastOffset;
 }
+
+@property (nonatomic, weak) UITableView *tableView;
+@property (nonatomic, strong) NSMutableArray *boobs;
 
 @end
 
 @implementation OCBoobsListViewController
 
+@synthesize tableView = _tableView;
+@synthesize boobs = _boobs;
+
 - (id)init {
     self = [super init];
     if (self) {
         _boobs = [NSMutableArray array];
-        [self requestBoobs];
+        [self requestBoobsWithOffset:_lastOffset];
         
     }
     return self;
@@ -46,6 +55,10 @@
     tableView.dataSource = self;
     tableView.delegate = self;
     [self.view addSubview:tableView];
+    [tableView addInfiniteScrollingWithActionHandler:^{
+        [self setLastOffset:_lastOffset + 10];
+        [self requestBoobsWithOffset:_lastOffset];
+    }];
     
     _tableView = tableView;
 }
@@ -63,23 +76,51 @@
 }
 
 #pragma mark - Methods
-- (void)requestBoobs {
-    NSURLRequest *request = [[OCBoobsClient sharedClient] boobsRequestWithOffset:0 count:10 sort:@"rank"];
+- (void)setLastOffset:(NSInteger)offset {
+    _lastOffset = offset;
+}
+
+
+- (void)requestBoobsWithOffset:(NSInteger)offset {
+    
+    
+    NSURLRequest *request = [[OCBoobsClient sharedClient] boobsRequestWithOffset:offset count:10 sort:@"rank"];
+    
+    __weak OCBoobsListViewController *weakSelf = self;
+    
     AFHTTPRequestOperation *op = [[OCBoobsClient sharedClient] HTTPRequestOperationWithRequest:request success:^(AFHTTPRequestOperation *operation, id responseObject) {
         NSLog(@"%@", responseObject);
         
-        NSArray *jsonArray = (NSArray *)responseObject;
-        for (NSDictionary *dictJson in jsonArray) {
-            OCBoobs *boobsObject = [OCBoobs boobsFromDictionary:dictJson];
-            [_boobs addObject:boobsObject];
-        }
-        [_tableView reloadData];
+        NSArray *jsonBoobs = (NSArray *)responseObject;
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [weakSelf.tableView beginUpdates];
+            
+            NSMutableArray *indexes = [NSMutableArray array];
+            for (int i = weakSelf.boobs.count; i < weakSelf.boobs.count + jsonBoobs.count; i++) {
+                NSIndexPath *indexPath = [NSIndexPath indexPathForRow:i inSection:0];
+                [indexes addObject:indexPath];
+            }
+            
+            NSArray *jsonArray = (NSArray *)responseObject;
+            for (NSDictionary *dictJson in jsonArray) {
+                OCBoobs *boobsObject = [OCBoobs boobsFromDictionary:dictJson];
+                [weakSelf.boobs addObject:boobsObject];
+            }
+            
+            [weakSelf.tableView insertRowsAtIndexPaths:indexes withRowAnimation:UITableViewRowAnimationFade];
+            
+            [weakSelf.tableView endUpdates];
+            
+            [weakSelf.tableView.infiniteScrollingView stopAnimating];
+        });
         
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         NSLog(@"Fail %@", [error localizedDescription]);
     }];
     
     [[OCBoobsClient sharedClient] enqueueHTTPRequestOperation:op];
+
 }
 
 #pragma mark - UITableView DataSource
@@ -96,10 +137,7 @@
     }
     OCBoobs *boobs = [_boobs objectAtIndex:indexPath.row];
     
-//    cell.textLabel.text = [NSString stringWithFormat:@"%d", [boobs.rank integerValue]];
-    
     NSString *imagePath = [[OCBoobsClient sharedClient] previewPathFromBoobsPreview:boobs.previewPath];
-//    NSData *imageData = [NSData dataWithContentsOfURL:[NSURL URLWithString:imagePath]];
     NSURL *imageUrl = [NSURL URLWithString:imagePath];
     [cell setBoobsImageFromUrl:imageUrl];
     
