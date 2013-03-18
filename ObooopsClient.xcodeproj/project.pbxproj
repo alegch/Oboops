@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5C04017D16F6FE950030923F /* OCBoobs.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C04017C16F6FE950030923F /* OCBoobs.m */; };
+		5C04018516F723AC0030923F /* OCBoobsDatailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C04018416F723AC0030923F /* OCBoobsDatailViewController.m */; };
+		5C04018816F72AD40030923F /* OCBoobsListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C04018716F72AD40030923F /* OCBoobsListCell.m */; };
+		5C04018A16F738BF0030923F /* loading.png in Resources */ = {isa = PBXBuildFile; fileRef = 5C04018916F738BF0030923F /* loading.png */; };
 		5C87644416F3498900072EF5 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C87644316F3498900072EF5 /* UIKit.framework */; };
 		5C87644616F3498900072EF5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C87644516F3498900072EF5 /* Foundation.framework */; };
 		5C87644816F3498900072EF5 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C87644716F3498900072EF5 /* CoreGraphics.framework */; };
@@ -23,6 +27,13 @@
 
 /* Begin PBXFileReference section */
 		35E1183C046A467F8C66F605 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		5C04017B16F6FE950030923F /* OCBoobs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCBoobs.h; sourceTree = "<group>"; };
+		5C04017C16F6FE950030923F /* OCBoobs.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OCBoobs.m; sourceTree = "<group>"; };
+		5C04018316F723AC0030923F /* OCBoobsDatailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCBoobsDatailViewController.h; sourceTree = "<group>"; };
+		5C04018416F723AC0030923F /* OCBoobsDatailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OCBoobsDatailViewController.m; sourceTree = "<group>"; };
+		5C04018616F72AD40030923F /* OCBoobsListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCBoobsListCell.h; sourceTree = "<group>"; };
+		5C04018716F72AD40030923F /* OCBoobsListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OCBoobsListCell.m; sourceTree = "<group>"; };
+		5C04018916F738BF0030923F /* loading.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = loading.png; sourceTree = "<group>"; };
 		5C87643F16F3498900072EF5 /* ObooopsClient.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ObooopsClient.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5C87644316F3498900072EF5 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		5C87644516F3498900072EF5 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -98,6 +109,7 @@
 				5C87644A16F3498900072EF5 /* Supporting Files */,
 				5C87648216F3534D00072EF5 /* OCBoobsClient.h */,
 				5C87648316F3534D00072EF5 /* OCBoobsClient.m */,
+				5C04018916F738BF0030923F /* loading.png */,
 			);
 			path = ObooopsClient;
 			sourceTree = "<group>";
@@ -121,6 +133,8 @@
 			children = (
 				5C87647416F34A0900072EF5 /* OCBoobsListViewController.h */,
 				5C87647516F34A0900072EF5 /* OCBoobsListViewController.m */,
+				5C04018316F723AC0030923F /* OCBoobsDatailViewController.h */,
+				5C04018416F723AC0030923F /* OCBoobsDatailViewController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -128,6 +142,8 @@
 		5C87648716F354A500072EF5 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				5C04017B16F6FE950030923F /* OCBoobs.h */,
+				5C04017C16F6FE950030923F /* OCBoobs.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -135,6 +151,8 @@
 		5C87648816F354AB00072EF5 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				5C04018616F72AD40030923F /* OCBoobsListCell.h */,
+				5C04018716F72AD40030923F /* OCBoobsListCell.m */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -196,6 +214,7 @@
 				5C87645616F3498900072EF5 /* Default.png in Resources */,
 				5C87645816F3498900072EF5 /* Default@2x.png in Resources */,
 				5C87645A16F3498900072EF5 /* Default-568h@2x.png in Resources */,
+				5C04018A16F738BF0030923F /* loading.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -227,6 +246,9 @@
 				5C87645416F3498900072EF5 /* OCAppDelegate.m in Sources */,
 				5C87647616F34A0900072EF5 /* OCBoobsListViewController.m in Sources */,
 				5C87648416F3534D00072EF5 /* OCBoobsClient.m in Sources */,
+				5C04017D16F6FE950030923F /* OCBoobs.m in Sources */,
+				5C04018516F723AC0030923F /* OCBoobsDatailViewController.m in Sources */,
+				5C04018816F72AD40030923F /* OCBoobsListCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

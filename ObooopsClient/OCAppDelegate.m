@@ -17,9 +17,8 @@
     
     OCBoobsListViewController *vc = [[OCBoobsListViewController alloc] init];
     
-    UITabBarController *tabVc = [[UITabBarController alloc] init];
-    tabVc.viewControllers = @[vc];
-    self.window.rootViewController = tabVc;
+    UINavigationController *navVc = [[UINavigationController alloc] initWithRootViewController:vc];
+    self.window.rootViewController = navVc;
     [self.window makeKeyAndVisible];
     return YES;
 }

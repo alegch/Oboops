@@ -11,7 +11,7 @@
 
 @implementation OCBoobsClient
 
-static NSString * const kAFBoobsAPIBaseURLString = @"http://api.oboobs.ru/";
+static NSString * const kAFBoobsAPIBaseURLString = @"http://api.oboobs.ru";
 
 #pragma mark - Static Methods
 + (OCBoobsClient *)sharedClient {
@@ -40,8 +40,13 @@ static NSString * const kAFBoobsAPIBaseURLString = @"http://api.oboobs.ru/";
 - (NSURLRequest *)boobsRequestWithOffset:(NSInteger)offset count:(NSInteger)count sort:(NSString *)sort {
     NSString *params = [NSString stringWithFormat:@"%d/%d/%@", offset, count, sort];
     
-    NSMutableURLRequest *request = [self requestWithMethod:@"GET" path:[NSString stringWithFormat:@"path/%@", params] parameters:nil];
+    NSMutableURLRequest *request = [self requestWithMethod:@"GET" path:[NSString stringWithFormat:@"boobs/%@", params] parameters:nil];
     return request;
+}
+
+- (NSString *)previewPathFromBoobsPreview:(NSString *)preview {
+    NSString *path = [NSString stringWithFormat:@"http://media.oboobs.ru/%@", preview];
+    return path;
 }
 
 @end

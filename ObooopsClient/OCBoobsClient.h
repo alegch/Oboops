@@ -11,7 +11,11 @@
 @interface OCBoobsClient : AFHTTPClient
 
 
+#pragma mark - Static Methods
++ (OCBoobsClient *)sharedClient;
+
 #pragma mark - Methods
 - (NSURLRequest *)boobsRequestWithOffset:(NSInteger)offset count:(NSInteger)count sort:(NSString *)sort;
 
+- (NSString *)previewPathFromBoobsPreview:(NSString *)preview;
 @end
