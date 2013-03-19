@@ -11,6 +11,9 @@
 		5C04018516F723AC0030923F /* OCBoobsDatailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C04018416F723AC0030923F /* OCBoobsDatailViewController.m */; };
 		5C04018816F72AD40030923F /* OCBoobsListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C04018716F72AD40030923F /* OCBoobsListCell.m */; };
 		5C04018A16F738BF0030923F /* loading.png in Resources */ = {isa = PBXBuildFile; fileRef = 5C04018916F738BF0030923F /* loading.png */; };
+		5C0401DD16F8820F0030923F /* OCBoobsDetailPanelView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C0401DC16F8820F0030923F /* OCBoobsDetailPanelView.m */; };
+		5C0401E816F896B50030923F /* Storage.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 5C0401E616F896B40030923F /* Storage.xcdatamodeld */; };
+		5C0401EB16F899790030923F /* OCCDBoobs.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C0401EA16F899790030923F /* OCCDBoobs.m */; };
 		5C87644416F3498900072EF5 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C87644316F3498900072EF5 /* UIKit.framework */; };
 		5C87644616F3498900072EF5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C87644516F3498900072EF5 /* Foundation.framework */; };
 		5C87644816F3498900072EF5 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C87644716F3498900072EF5 /* CoreGraphics.framework */; };
@@ -34,6 +37,11 @@
 		5C04018616F72AD40030923F /* OCBoobsListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCBoobsListCell.h; sourceTree = "<group>"; };
 		5C04018716F72AD40030923F /* OCBoobsListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OCBoobsListCell.m; sourceTree = "<group>"; };
 		5C04018916F738BF0030923F /* loading.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = loading.png; sourceTree = "<group>"; };
+		5C0401DB16F8820F0030923F /* OCBoobsDetailPanelView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCBoobsDetailPanelView.h; sourceTree = "<group>"; };
+		5C0401DC16F8820F0030923F /* OCBoobsDetailPanelView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OCBoobsDetailPanelView.m; sourceTree = "<group>"; };
+		5C0401E716F896B50030923F /* Storage.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Storage.xcdatamodel; sourceTree = "<group>"; };
+		5C0401E916F899780030923F /* OCCDBoobs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCCDBoobs.h; sourceTree = "<group>"; };
+		5C0401EA16F899790030923F /* OCCDBoobs.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OCCDBoobs.m; sourceTree = "<group>"; };
 		5C87643F16F3498900072EF5 /* ObooopsClient.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ObooopsClient.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5C87644316F3498900072EF5 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		5C87644516F3498900072EF5 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -144,6 +152,9 @@
 			children = (
 				5C04017B16F6FE950030923F /* OCBoobs.h */,
 				5C04017C16F6FE950030923F /* OCBoobs.m */,
+				5C0401E616F896B40030923F /* Storage.xcdatamodeld */,
+				5C0401E916F899780030923F /* OCCDBoobs.h */,
+				5C0401EA16F899790030923F /* OCCDBoobs.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -153,6 +164,8 @@
 			children = (
 				5C04018616F72AD40030923F /* OCBoobsListCell.h */,
 				5C04018716F72AD40030923F /* OCBoobsListCell.m */,
+				5C0401DB16F8820F0030923F /* OCBoobsDetailPanelView.h */,
+				5C0401DC16F8820F0030923F /* OCBoobsDetailPanelView.m */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -249,6 +262,9 @@
 				5C04017D16F6FE950030923F /* OCBoobs.m in Sources */,
 				5C04018516F723AC0030923F /* OCBoobsDatailViewController.m in Sources */,
 				5C04018816F72AD40030923F /* OCBoobsListCell.m in Sources */,
+				5C0401DD16F8820F0030923F /* OCBoobsDetailPanelView.m in Sources */,
+				5C0401E816F896B50030923F /* Storage.xcdatamodeld in Sources */,
+				5C0401EB16F899790030923F /* OCCDBoobs.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -362,6 +378,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		5C0401E616F896B40030923F /* Storage.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				5C0401E716F896B50030923F /* Storage.xcdatamodel */,
+			);
+			currentVersion = 5C0401E716F896B50030923F /* Storage.xcdatamodel */;
+			path = Storage.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 5C87643616F3498900072EF5 /* Project object */;
 }
